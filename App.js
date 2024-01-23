@@ -5,19 +5,33 @@ import color from './components/constatnts/color';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GamesScreen from './screens/GameScreen';
+import GameOverScreen from './screens/GameOverScreen';
 
 export default function App() {
   const [gameNumber, setGameNumber] = useState();
+ const [gameIsOver,setGameIsOver]=useState(true);
+
 
   function pickedNumberHandler(pickedNumber) {
     setGameNumber(pickedNumber);
+    setGameIsOver(false);
   }
+
+  function gameOverHandler(){
+    setGameIsOver(true)
+  }
+
 
   let screen = <StartGameScreen onPickNum={pickedNumberHandler} />;
 
   if (gameNumber) {
-    screen = <GamesScreen gameNumber={gameNumber} />;
+    screen = <GamesScreen gameNumber={gameNumber} onGameOver={gameOverHandler}/>;
   }
+
+  if (gameIsOver && gameNumber){
+    screen=<GameOverScreen/>
+  }
+
 
   return (
     <LinearGradient colors={[color.primary800,color.aceent500  ]} style={styles.rootScreen}>
