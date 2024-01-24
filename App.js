@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { StyleSheet,ImageBackground,SafeAreaView} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import color from './components/constatnts/color';
+import {useFonts} from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GamesScreen from './screens/GameScreen';
@@ -11,6 +13,14 @@ export default function App() {
   const [gameNumber, setGameNumber] = useState();
  const [gameIsOver,setGameIsOver]=useState(true);
 
+  const [fontsLoaded]= useFonts({
+  'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+  'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+ });
+
+if(!fontsLoaded){
+  return <AppLoading />;
+}
 
   function pickedNumberHandler(pickedNumber) {
     setGameNumber(pickedNumber);

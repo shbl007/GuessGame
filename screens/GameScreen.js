@@ -5,6 +5,7 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/UI/PrimaryButtons";
 import Card from "../components/UI/card";
 import InstructionText from "../components/UI/InstructionText";
+import {Ionicons} from '@expo/vector-icons'
 
 import { useEffect } from "react";
 
@@ -63,10 +64,14 @@ return (
   < InstructionText style={styles.instructionsSpace}>Higher or Lower</InstructionText>   
     <View style={styles.buttonsContainer}>
         <View style={styles.button}>
-        <PrimaryButton onPress={nextGuessHandler.bind(this,'lower')}>-</PrimaryButton>
+        <PrimaryButton onPress={nextGuessHandler.bind(this,'lower')}>
+        <Ionicons name="remove" size={24}  />
+        </PrimaryButton>
         </View>
         <View style={styles.button}>
-        <PrimaryButton onPress={nextGuessHandler.bind(this,'greater')}>+</PrimaryButton>
+        <PrimaryButton onPress={nextGuessHandler.bind(this,'greater')}>
+        <Ionicons name="add" size={24} />
+        </PrimaryButton>
         </View>
     </View>
     
