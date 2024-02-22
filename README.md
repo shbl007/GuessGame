@@ -19,8 +19,6 @@ GuessGame is an interactive mobile application developed using React Native, aim
 
 
 
-
-
 ![WhatsApp Image 2024-02-21 at 5 48 25 PM (2)](https://github.com/shbl007/GuessGame/assets/98837574/fce7c6f2-2b07-4f84-afcb-c0e24217ca72)
 
 
